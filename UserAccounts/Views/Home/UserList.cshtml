@@ -1,0 +1,183 @@
+﻿@model IEnumerable<UserAccounts.Models.UserListViewModel>
+
+@{
+    ViewBag.Title = "UserList";
+}
+
+<head>
+
+    <style>
+        .btn-toolbar {
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: auto;
+            left: auto;
+            margin: auto;
+            background: #808080;
+            font-size: medium;
+            font-weight: bold;
+            border-bottom-width: medium;
+        }
+
+        .btn {
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        .bg-danger {
+            background: #808080;
+        }
+
+        .table {
+            border-style: double;
+            border-color: #808080;
+            margin-top: 3%;
+        }
+
+        .btn-xs {
+            background: #808080;
+            font-size: small;
+        }
+
+        thead {
+            background-color: #808080;
+        }
+
+        footer {
+            margin-top: 55%;
+            text-align: right
+        }
+
+        .btn-primary {
+            background: #808080;
+            border-color: #808080;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2>UserList</h2>
+
+    <meta charset="utf-8">
+    <div class="bg-danger">
+        <div class="btn-group" role="toolbar">
+            <button type="button" class="btn btn-toolbar" onclick="Locking()">Block</button>
+            <button type="button" class="btn btn-toolbar" onclick="Unlocking()">Unblock</button>
+            <button type="button" class="btn btn-toolbar" onclick="Delete()">Delete</button>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                User name
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input class="checkbox" type="checkbox" name="statuses" value="@item.Id">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+
+<script type="text/javascript">
+
+    function Locking()
+    {
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("LockUser", "Account")",
+            data: { arr: getCheckedCheckBoxes() },
+            success: function (data) {
+                if (data == true) {
+                    location.reload();
+                }
+                else {
+
+                }
+            },
+            error: function () {
+                alert("Error");
+            }
+        });
+    }
+
+    function Unlocking()
+    {
+        $.ajax(
+            {
+                type: 'POST',
+                url: "@Url.Action("UnLockUser", "Account")",
+                data: { arr: getCheckedCheckBoxes() },
+                success: function (data) {
+                    if (data == true) {
+                        location.reload();
+                    }
+                    else {
+
+                    }
+                },
+                error: function () {
+                    alert("Error");
+                }
+            }
+        );
+    }
+
+    function Delete()
+    {
+        $.ajax(
+            {
+                type: 'POST',
+                url: "@Url.Action("DeleteUser", "Account")",
+                data: { arr: getCheckedCheckBoxes() },
+                success: function (data) {
+                    if (data == true) {
+                        location.reload();
+                    }
+                    else {
+
+                    }
+                },
+                error: function () {
+                    alert("Error");
+                }
+            }
+        );
+    }
+
+    function getCheckedCheckBoxes()
+    {
+        var checkboxes = document.getElementsByClassName('checkbox');
+        var checkboxesChecked = [];
+        for (var index = 0; index < checkboxes.length; index++)
+        {
+            if (checkboxes[index].checked)
+            {
+            checkboxesChecked.push(checkboxes[index].value);
+            }
+        }
+        return checkboxesChecked;
+    }
+
+</script>
