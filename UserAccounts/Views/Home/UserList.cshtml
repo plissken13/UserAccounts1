@@ -72,7 +72,7 @@
     <table class="table">
         <tr>
             <th>
-
+                <input id="checkall" type="checkbox" />
             </th>
             <th>
                 User name
@@ -99,6 +99,7 @@
 
     </table>
 </body>
+
 
 <script type="text/javascript">
 
@@ -174,10 +175,34 @@
         {
             if (checkboxes[index].checked)
             {
-            checkboxesChecked.push(checkboxes[index].value);
+                checkboxesChecked.push(checkboxes[index].value);
             }
         }
         return checkboxesChecked;
     }
 
+    $(document).ready(function(){
+        $("#checkall").change(function(){
+            var checked = $(this).is(':checked');
+            if(checked){
+                $(".checkbox").each(function(){
+                    $(this).prop("checked",true);
+                });
+            }else{
+                $(".checkbox").each(function(){
+                    $(this).prop("checked",false);
+                });
+            }
+        });
+ 
+        $(".checkbox").click(function(){
+ 
+            if($(".checkbox").length == $(".checkbox:checked").length) {
+                $("#checkall").prop("checked", true);
+            } else {
+                $("#checkall").prop("checked", false);
+            }
+
+        });
+    });
 </script>
