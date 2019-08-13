@@ -109,7 +109,7 @@
             url: "@Url.Action("LockUser", "Account")",
             data: { arr: getCheckedCheckBoxes() },
             success: function (data) {
-                if (data == true) {
+                if (data === "True") {
                     location.reload();
                 }
                 else {
@@ -130,7 +130,7 @@
                 url: "@Url.Action("UnLockUser", "Account")",
                 data: { arr: getCheckedCheckBoxes() },
                 success: function (data) {
-                    if (data == true) {
+                    if (data === "True") {
                         location.reload();
                     }
                     else {
@@ -152,7 +152,7 @@
                 url: "@Url.Action("DeleteUser", "Account")",
                 data: { arr: getCheckedCheckBoxes() },
                 success: function (data) {
-                    if (data == true) {
+                    if (data === "True") {
                         location.reload();
                     }
                     else {
