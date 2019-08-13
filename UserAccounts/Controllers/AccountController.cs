@@ -457,7 +457,6 @@ namespace UserAccounts.Controllers
             return true;
         }
 
-        //TODO: delete if
         [Authorize]
         public async Task<bool> UnLockUser(List<string> arr)
         {
@@ -466,10 +465,6 @@ namespace UserAccounts.Controllers
             {
                 user = await UserManager.FindByIdAsync(id);
                 user.LockoutEndDateUtc = DateTime.UtcNow;
-                if (user.Email == User.Identity.Name)
-                {
-                    AuthenticationManager.SignOut();
-                }
                 await UserManager.UpdateAsync(user);
             }
             return true;
