@@ -113,3 +113,11 @@ C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.csproj.CoreCompi
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.csproj.CopyComplete
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.dll
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.pdb
+C:\Development\UserAccounts\UserAccounts\bin\SendGrid.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Net.Http.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.Cryptography.Algorithms.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.Cryptography.Encoding.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.Cryptography.Primitives.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Development\UserAccounts\UserAccounts\bin\SendGrid.pdb
+C:\Development\UserAccounts\UserAccounts\bin\SendGrid.xml
