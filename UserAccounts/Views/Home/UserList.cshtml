@@ -4,72 +4,17 @@
     ViewBag.Title = "UserList";
 }
 
-<head>
+<meta charset="utf-8">
+<ul class="nav justify-content-end">
+    <nav class="navbar-brand">
 
-    <style>
-        .btn-toolbar {
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: auto;
-            left: auto;
-            margin: auto;
-            background: #808080;
-            font-size: medium;
-            font-weight: bold;
-            border-bottom-width: medium;
-        }
+        <button type="button" class="btn btn-success" onclick="Unlocking()">Unblock</button>
+        <button type="button" class="btn btn-warning" onclick="Locking()">Block</button>
+        <button type="button" class="btn btn-danger" onclick="Delete()">Delete</button>
 
-        .btn {
-            font-size: medium;
-            font-weight: bold;
-        }
-
-        .bg-danger {
-            background: #808080;
-        }
-
-        .table {
-            border-style: double;
-            border-color: #808080;
-            margin-top: 3%;
-        }
-
-        .btn-xs {
-            background: #808080;
-            font-size: small;
-        }
-
-        thead {
-            background-color: #808080;
-        }
-
-        footer {
-            margin-top: 55%;
-            text-align: right
-        }
-
-        .btn-primary {
-            background: #808080;
-            border-color: #808080;
-        }
-    </style>
-
-</head>
-<body>
-
-    <h2>UserList</h2>
-
-    <meta charset="utf-8">
-    <div class="bg-danger">
-        <div class="btn-group" role="toolbar">
-            <button type="button" class="btn btn-toolbar" onclick="Locking()">Block</button>
-            <button type="button" class="btn btn-toolbar" onclick="Unlocking()">Unblock</button>
-            <button type="button" class="btn btn-toolbar" onclick="Delete()">Delete</button>
-        </div>
-    </div>
-
-    <table class="table">
+    </nav>
+</ul>
+<table class="table">
         <tr>
             <th>
                 <input id="checkall" type="checkbox" />
@@ -98,7 +43,6 @@
         }
 
     </table>
-</body>
 
 
 <script type="text/javascript">
@@ -194,9 +138,9 @@
                 });
             }
         });
- 
+
         $(".checkbox").click(function(){
- 
+
             if($(".checkbox").length == $(".checkbox:checked").length) {
                 $("#checkall").prop("checked", true);
             } else {
