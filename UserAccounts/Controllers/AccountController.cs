@@ -424,6 +424,8 @@ namespace UserAccounts.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpPost]
+        [Authorize]
         public async Task<bool> DeleteUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
@@ -439,7 +441,7 @@ namespace UserAccounts.Controllers
             return true;
         }
 
-
+        [HttpPost]
         [Authorize]
         public async Task<bool> LockUser(List<string> arr)
         {
@@ -457,6 +459,7 @@ namespace UserAccounts.Controllers
             return true;
         }
 
+        [HttpPost]
         [Authorize]
         public async Task<bool> UnLockUser(List<string> arr)
         {
