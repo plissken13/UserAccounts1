@@ -31,7 +31,7 @@ namespace UserAccounts
             myMessage.HtmlContent = message.Body;
             myMessage.AddTo(message.Destination);
 
-            var apiKey = "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";
+            var apiKey = "";
 
             var client = new SendGridClient(apiKey);
             var response = await client.SendEmailAsync(myMessage);

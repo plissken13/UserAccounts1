@@ -1,6 +1,7 @@
 ﻿@model UserAccounts.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    //ViewBag.Message = "Don't forget to confirm your email!";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -34,6 +35,7 @@
             <input type="submit" class="btn btn-secondary" value="Register" />
         </div>
     </div>
+    <h6>@ViewBag.Message</h6>
 }
 
 @section Scripts {
