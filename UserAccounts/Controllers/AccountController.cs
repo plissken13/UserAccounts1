@@ -165,7 +165,7 @@ namespace UserAccounts.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new {userId = user.Id, code = code},
                         protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account",
-                        "Please confirm your account by clicking <a href=\"" + user.Email + "\">here</a>");
+                        "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
                                       + "before you can log in.";
