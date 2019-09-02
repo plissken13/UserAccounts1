@@ -25,5 +25,7 @@ namespace UserAccounts.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<UserAccounts.Models.CampaignModel> CampaignModels { get; set; }
     }
 }

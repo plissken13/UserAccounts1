@@ -121,3 +121,6 @@ C:\Development\UserAccounts\UserAccounts\bin\System.Security.Cryptography.Primit
 C:\Development\UserAccounts\UserAccounts\bin\System.Security.Cryptography.X509Certificates.dll
 C:\Development\UserAccounts\UserAccounts\bin\SendGrid.pdb
 C:\Development\UserAccounts\UserAccounts\bin\SendGrid.xml
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.InitialCreate.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.csproj.GenerateResource.cache
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fixusers.resources
