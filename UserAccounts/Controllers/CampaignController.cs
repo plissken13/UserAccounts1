@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using Microsoft.AspNet.Identity;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using UserAccounts.Models;
 
@@ -8,12 +12,50 @@ namespace UserAccounts.Controllers
     {
         public ActionResult Create()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<ActionResult> Create(CreateCampaignViewModel model)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                db.CampaignModels.Add(GetCampaignModel(model));
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("CampaignList", "Campaign");
+        }
+
+        //TODO: private method and null check.
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            throw new System.NotImplementedException();
+            using (var db = new ApplicationDbContext())
+            {
+                var campaign = db.CampaignModels.SingleOrDefault(x => x.Id == id);
+                var temp = new CreateCampaignViewModel
+                {
+                    Name = campaign.Name,
+                    Description = campaign.Description,
+                    Sum = campaign.RequiredSum
+                };
+                return View(temp);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Edit(CreateCampaignViewModel model)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var campaign = GetCampaignModel(model);
+                db.CampaignModels.AddOrUpdate(campaign);
+                db.SaveChanges();
+                return RedirectToAction("CampaignList", "Campaign");
+            }
         }
 
         public ActionResult Details(int id)
@@ -21,26 +63,40 @@ namespace UserAccounts.Controllers
             throw new System.NotImplementedException();
         }
 
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
         {
-            throw new System.NotImplementedException();
+            using (var db = new ApplicationDbContext())
+            {
+                var campaign = await db.CampaignModels.SingleOrDefaultAsync(x => x.Id == id);
+                if (campaign != null)
+                {
+                    db.CampaignModels.Remove(campaign);
+                    db.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("CampaignList", "Campaign");
         }
 
         public ActionResult CampaignList()
         {
-            var viewModel = new CampaignModel
+            using (var db = new ApplicationDbContext())
             {
-                Id = 1,
-                Name = "qwerty",
-                OwnerId = 2,
-                RequiredSum = 1,
-                CurrentSum = 3
-            };
-            var temp = new List<CampaignModel>
+                return View(db.CampaignModels.ToList());
+            }
+        }
+
+        private CampaignModel GetCampaignModel(CreateCampaignViewModel model)
+        {
+            return new CampaignModel
             {
-                viewModel
+                Id = model.Id,
+                Name = model.Name,
+                Description = model.Description,
+                RequiredSum = model.Sum,
+                OwnerId = User.Identity.GetUserId()
             };
-            return View(temp);
         }
     }
 }

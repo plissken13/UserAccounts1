@@ -124,3 +124,5 @@ C:\Development\UserAccounts\UserAccounts\bin\SendGrid.xml
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.InitialCreate.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.csproj.GenerateResource.cache
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fixusers.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fixcampaignmodel.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fix.resources

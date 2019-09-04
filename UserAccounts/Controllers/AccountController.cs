@@ -60,7 +60,7 @@ namespace UserAccounts.Controllers
                 return View(model);
             }
 
-            var user = await UserManager.FindByNameAsync(model.Email);
+            //var user = await UserManager.FindByNameAsync(model.Email);
             //TODO: private method.
             //if (user != null)
             //{
