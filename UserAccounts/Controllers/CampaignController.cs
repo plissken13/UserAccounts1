@@ -18,7 +18,7 @@ namespace UserAccounts.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> Create(CreateCampaignViewModel model)
+        public ActionResult Create(CreateCampaignViewModel model)
         {
             using (var db = new ApplicationDbContext())
             {
@@ -125,18 +125,20 @@ namespace UserAccounts.Controllers
         [Authorize]
         public ActionResult Write(int id)
         {
-            using (var db = new ApplicationDbContext())
+            var model = new WritePostViewModel();
+            var post = new PostModel
             {
-                var campaign = db.CampaignModels.SingleOrDefaultAsync(x => x.Id == id);
-                var post = new WritePostViewModel();
-                post.Id = campaign.Id;
-                return View(post);
-            }
+                Id = model.PostId,
+                CampaignId = id,
+                Title = model.Title,
+                Content = model.Content
+            };
+            return View(post);
         }
 
         [Authorize]
         [HttpPost]
-        public ActionResult Write(WritePostViewModel post)
+        public ActionResult Write(PostModel post)
         {
             return RedirectToAction("Write", "Campaign");
         }

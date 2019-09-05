@@ -17,6 +17,6 @@ namespace UserAccounts.Models
 
         public double CurrentSum { get; set; }
 
-        public virtual List<PostModel> Posts { get; set; }
+        public virtual IList<PostModel> Posts { get; set; }
     }
 }

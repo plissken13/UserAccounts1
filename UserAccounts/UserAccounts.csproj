@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201909051514549_AddPostM.Designer.cs">
       <DependentUpon>201909051514549_AddPostM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909051649045_Name.cs" />
+    <Compile Include="Migrations\201909051649045_Name.Designer.cs">
+      <DependentUpon>201909051649045_Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909051514549_AddPostM.resx">
       <DependentUpon>201909051514549_AddPostM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909051649045_Name.resx">
+      <DependentUpon>201909051649045_Name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

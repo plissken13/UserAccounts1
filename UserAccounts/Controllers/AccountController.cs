@@ -64,7 +64,7 @@ namespace UserAccounts.Controllers
             //TODO: private method.
             //if (user != null)
             //{
-            //    if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+            //    if (!await UserManager.IsEmailConfirmedAsync(user.CampaignId))
             //    {
             //        ViewBag.errorMessage = "You must have a confirmed email to log on.";
             //        return View("Error");
@@ -163,7 +163,7 @@ namespace UserAccounts.Controllers
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new {userId = user.Id, code = code},
                         protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account",
+                    // await UserManager.SendEmailAsync(user.CampaignId, "Confirm your account",
                     //  "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
