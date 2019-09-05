@@ -29,23 +29,34 @@ namespace UserAccounts.Controllers
             return RedirectToAction("CampaignList", "Campaign");
         }
 
-        //TODO: private method and null check.
+        private CreateCampaignViewModel EditCampaign(CampaignModel campaign)
+        {
+            var temp = new CreateCampaignViewModel
+            {
+                Name = campaign.Name,
+                Description = campaign.Description,
+                Sum = campaign.RequiredSum
+            };
+            return temp;
+        }
+
+        [Authorize]
         [HttpGet]
         public ActionResult Edit(int id)
         {
             using (var db = new ApplicationDbContext())
             {
                 var campaign = db.CampaignModels.SingleOrDefault(x => x.Id == id);
-                var temp = new CreateCampaignViewModel
+                if (campaign != null)
                 {
-                    Name = campaign.Name,
-                    Description = campaign.Description,
-                    Sum = campaign.RequiredSum
-                };
-                return View(temp);
+                    return View(EditCampaign(campaign));
+                }
+
+                return View();
             }
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(CreateCampaignViewModel model)
         {
@@ -58,11 +69,23 @@ namespace UserAccounts.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Details(int id)
         {
-            throw new System.NotImplementedException();
+            using (var db = new ApplicationDbContext())
+            {
+                var campaign = db.CampaignModels.SingleOrDefault(x => x.Id == id);
+                return View(campaign);
+            }
         }
 
+        [HttpPost]
+        public ActionResult Details(CampaignModel campaign)
+        {
+            return RedirectToAction("Details", "Campaign");
+        }
+
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
