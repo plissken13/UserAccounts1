@@ -231,13 +231,19 @@
     <Compile Include="Migrations\201909051352516_AddPostMigration.Designer.cs">
       <DependentUpon>201909051352516_AddPostMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909051514549_AddPostM.cs" />
+    <Compile Include="Migrations\201909051514549_AddPostM.Designer.cs">
+      <DependentUpon>201909051514549_AddPostM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
     <Compile Include="Models\CreateCampaignViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\UserListViewModel.cs" />
+    <Compile Include="Models\WritePostViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -341,6 +347,7 @@
     <Content Include="Views\Campaign\Create.cshtml" />
     <Content Include="Views\Campaign\Edit.cshtml" />
     <Content Include="Views\Campaign\Details.cshtml" />
+    <Content Include="Views\Campaign\Write.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -371,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909051352516_AddPostMigration.resx">
       <DependentUpon>201909051352516_AddPostMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909051514549_AddPostM.resx">
+      <DependentUpon>201909051514549_AddPostM.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

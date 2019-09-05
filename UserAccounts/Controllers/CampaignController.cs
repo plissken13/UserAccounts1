@@ -121,5 +121,24 @@ namespace UserAccounts.Controllers
                 OwnerId = User.Identity.GetUserId()
             };
         }
+
+        [Authorize]
+        public ActionResult Write(int id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var campaign = db.CampaignModels.SingleOrDefaultAsync(x => x.Id == id);
+                var post = new WritePostViewModel();
+                post.Id = campaign.Id;
+                return View(post);
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Write(WritePostViewModel post)
+        {
+            return RedirectToAction("Write", "Campaign");
+        }
     }
 }

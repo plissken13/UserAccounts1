@@ -126,3 +126,5 @@ C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.csproj.GenerateR
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fixusers.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fixcampaignmodel.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.fix.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.AddPostMigration.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.AddPostM.resources

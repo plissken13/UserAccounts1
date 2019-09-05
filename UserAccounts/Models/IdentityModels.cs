@@ -27,5 +27,7 @@ namespace UserAccounts.Models
         }
 
         public System.Data.Entity.DbSet<CampaignModel> CampaignModels { get; set; }
+
+        public System.Data.Entity.DbSet<UserAccounts.Models.WritePostViewModel> WritePostViewModels { get; set; }
     }
 }
