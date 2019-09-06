@@ -125,13 +125,9 @@ namespace UserAccounts.Controllers
         [Authorize]
         public ActionResult Write(int id)
         {
-            var model = new WritePostViewModel();
             var post = new PostModel
             {
-                Id = model.PostId,
-                CampaignId = id,
-                Title = model.Title,
-                Content = model.Content
+                CampaignId = id
             };
             return View(post);
         }
@@ -140,7 +136,13 @@ namespace UserAccounts.Controllers
         [HttpPost]
         public ActionResult Write(PostModel post)
         {
-            return RedirectToAction("Write", "Campaign");
+            using (var db = new ApplicationDbContext())
+            {
+                db.PostModels.Add(post);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("CampaignList", "Campaign");
         }
     }
 }

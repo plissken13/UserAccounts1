@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace UserAccounts.Models
 {
@@ -26,8 +27,17 @@ namespace UserAccounts.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CampaignModel> CampaignModels { get; set; }
+        public DbSet<CampaignModel> CampaignModels { get; set; }
 
-        public System.Data.Entity.DbSet<PostModel> PostModels { get; set; }
+        public DbSet<PostModel> PostModels { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PostModel>()
+                .HasRequired(s => s.Campaign)
+                .WithMany(g => g.Posts)
+                .HasForeignKey(s => s.CampaignId);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

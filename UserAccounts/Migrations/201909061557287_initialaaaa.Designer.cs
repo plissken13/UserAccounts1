@@ -7,13 +7,13 @@ namespace UserAccounts.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddPostM : IMigrationMetadata
+    public sealed partial class initialaaaa : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddPostM));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialaaaa));
         
         string IMigrationMetadata.Id
         {
-            get { return "201909051514549_AddPostM"; }
+            get { return "201909061557287_initialaaaa"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace UserAccounts.Models
+﻿namespace UserAccounts.Models
 {
     public class PostModel
     {
@@ -14,5 +9,7 @@ namespace UserAccounts.Models
         public string Content { get; set; }
 
         public int CampaignId { get; set; }
+
+        public CampaignModel Campaign { get; set; }
     }
 }

@@ -1,16 +1,12 @@
 namespace UserAccounts.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<UserAccounts.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "UserAccounts.Models.ApplicationDbContext";
         }
 
         protected override void Seed(UserAccounts.Models.ApplicationDbContext context)
