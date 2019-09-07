@@ -327,6 +327,7 @@
     <Content Include="Views\Campaign\Edit.cshtml" />
     <Content Include="Views\Campaign\Details.cshtml" />
     <Content Include="Views\Campaign\Write.cshtml" />
+    <Content Include="Views\Campaign\Posts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

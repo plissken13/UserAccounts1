@@ -1,4 +1,5 @@
-﻿@model UserAccounts.Models.CampaignModel
+﻿@using UserAccounts.Models
+@model UserAccounts.Models.CampaignModel
 
 @{
     ViewBag.Title = "Details";
@@ -51,6 +52,9 @@
         </dd>
 
     </dl>
+</div>
+<div>
+    @Html.Partial("Posts", Model.Posts)
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new {id = Model.Id})

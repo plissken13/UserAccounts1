@@ -10,6 +10,6 @@
 
         public int CampaignId { get; set; }
 
-        public CampaignModel Campaign { get; set; }
+        public virtual CampaignModel Campaign { get; set; }
     }
 }
