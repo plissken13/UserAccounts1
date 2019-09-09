@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -75,14 +75,15 @@ namespace UserAccounts.Controllers
             using (var db = new ApplicationDbContext())
             {
                 var campaign = db.CampaignModels.SingleOrDefault(x => x.Id == id);
+                if (campaign == null)
+                {
+                    return View("CampaignNotFound");
+                }
+
+                var posts = db.PostModels.Where(x => x.CampaignId == id).ToList();
+                campaign.Posts = posts;
                 return View(campaign);
             }
-        }
-
-        [HttpPost]
-        public ActionResult Details(CampaignModel campaign)
-        {
-            return RedirectToAction("Details", "Campaign");
         }
 
         [Authorize]
