@@ -37,7 +37,8 @@ namespace UserAccounts.Controllers
                 {
                     Id = x.Id,
                     UserName = x.UserName,
-                    Status = ParseStatus(x.LockoutEndDateUtc)
+                    Status = ParseStatus(x.LockoutEndDateUtc),
+                    //Role = x.Roles.ToString()
                 });
 
                 return View(viewModel);

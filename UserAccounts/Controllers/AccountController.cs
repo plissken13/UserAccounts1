@@ -143,7 +143,7 @@ namespace UserAccounts.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
                 .ToList(), "Name", "Name");
             return View();
         }
@@ -176,7 +176,7 @@ namespace UserAccounts.Controllers
 
                     await UserManager.AddToRoleAsync(user.Id, model.UserRoles);
 
-                    ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                    ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
                         .ToList(), "Name", "Name");
 
                     return RedirectToAction("Index", "Home");

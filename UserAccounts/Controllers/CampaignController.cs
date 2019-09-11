@@ -40,7 +40,7 @@ namespace UserAccounts.Controllers
             return temp;
         }
 
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult Edit(int id)
         {

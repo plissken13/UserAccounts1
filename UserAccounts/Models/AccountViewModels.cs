@@ -81,7 +81,6 @@ namespace UserAccounts.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
     }
 
