@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace UserAccounts.Models
 {
@@ -14,7 +15,8 @@ namespace UserAccounts.Models
         [StringLength(100, ErrorMessage = "The {0} must be at least {1} characters long.", MinimumLength = 1)]
         public string Description { get; set; }
 
-        [Required]
-        public double Sum { get; set; }
+        [Required] public double Sum { get; set; }
+
+        public string AuthorId { get; set; }
     }
 }

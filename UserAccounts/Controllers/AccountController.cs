@@ -457,7 +457,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize (Roles = "Admin")]
         public async Task<bool> DeleteUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
@@ -476,7 +476,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<bool> LockUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
@@ -496,7 +496,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<bool> UnLockUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();

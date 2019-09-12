@@ -12,7 +12,17 @@ namespace UserAccounts.Controllers
     {
         public ActionResult Create()
         {
-            return View();
+            if (!User.IsInRole("Admin"))
+            {
+                return View();
+            }
+
+            using (var db = new ApplicationDbContext())
+            {
+                var users = new SelectList(db.Users.ToList(), "Id", "UserName");
+                ViewBag.Users = users;
+                return View();
+            }
         }
 
         [HttpPost]
@@ -40,7 +50,7 @@ namespace UserAccounts.Controllers
             return temp;
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -119,7 +129,7 @@ namespace UserAccounts.Controllers
                 Name = model.Name,
                 Description = model.Description,
                 RequiredSum = model.Sum,
-                OwnerId = User.Identity.GetUserId()
+                OwnerId = model.AuthorId ?? User.Identity.GetUserId()
             };
         }
 
