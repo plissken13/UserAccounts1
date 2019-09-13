@@ -14,6 +14,12 @@ namespace UserAccounts.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             return userIdentity;
         }
+
+        public bool IsInRole(string roleName)
+        {
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            return manager.IsInRole(Id, roleName);
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

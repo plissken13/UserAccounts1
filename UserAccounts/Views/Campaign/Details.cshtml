@@ -1,5 +1,6 @@
 ﻿@using System.Collections
 @using System.Web.Mvc.Html
+@using Microsoft.AspNet.Identity
 @using UserAccounts.Models
 @model UserAccounts.Models.CampaignModel
 
@@ -58,9 +59,12 @@
 <div>
     @Html.Partial("Posts", Model.Posts)
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {id = Model.Id})
-</p>
-<p>
-    @Html.ActionLink("Write Post", "Write", new {id = Model.Id})
-</p>
+@if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.OwnerId)
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new {id = Model.Id})
+    </p>
+    <p>
+        @Html.ActionLink("Write Post", "Write", new {id = Model.Id})
+    </p>
+}

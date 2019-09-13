@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<UserAccounts.Models.CampaignModel>
-
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "CampaignList";
 }
@@ -27,7 +27,7 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Name, "Details", new { id = item.Id })
+                @Html.ActionLink(item.Name, "Details", new {id = item.Id})
             </td>
 
             <td>
@@ -37,8 +37,11 @@
                 @Html.DisplayFor(modelItem => item.CurrentSum)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                @if (User.IsInRole("Admin") || User.Identity.GetUserId() == item.OwnerId)
+                {
+                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) 
+                    @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                }
             </td>
         </tr>
     }

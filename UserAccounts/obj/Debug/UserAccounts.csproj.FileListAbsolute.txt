@@ -123,3 +123,7 @@ C:\Development\UserAccounts\UserAccounts\bin\SendGrid.pdb
 C:\Development\UserAccounts\UserAccounts\bin\SendGrid.xml
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.initialaaaa.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.csproj.GenerateResource.cache
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.Name13.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.name14.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.Name22.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.wtf.resources

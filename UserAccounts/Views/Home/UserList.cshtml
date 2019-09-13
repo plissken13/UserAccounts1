@@ -16,7 +16,7 @@
 <table class="table">
     <tr>
         <th>
-            <input id="checkall" type="checkbox"/>
+            <input id="checkall" type="checkbox" />
         </th>
         <th>
             User name
@@ -28,17 +28,17 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                <input class="checkbox" type="checkbox" name="statuses" value="@item.Id">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <input class="checkbox" type="checkbox" name="statuses" value="@item.Id">
+        </td>
+        <td>
+            @Html.ActionLink(item.UserName, "UserDetails", new { id = item.Id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+    </tr>
     }
 
 </table>

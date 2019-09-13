@@ -215,6 +215,22 @@
     <Compile Include="Migrations\201909061557287_initialaaaa.Designer.cs">
       <DependentUpon>201909061557287_initialaaaa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909130920549_Name13.cs" />
+    <Compile Include="Migrations\201909130920549_Name13.Designer.cs">
+      <DependentUpon>201909130920549_Name13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909130929390_name14.cs" />
+    <Compile Include="Migrations\201909130929390_name14.Designer.cs">
+      <DependentUpon>201909130929390_name14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909130933361_Name22.cs" />
+    <Compile Include="Migrations\201909130933361_Name22.Designer.cs">
+      <DependentUpon>201909130933361_Name22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909131115389_wtf.cs" />
+    <Compile Include="Migrations\201909131115389_wtf.Designer.cs">
+      <DependentUpon>201909131115389_wtf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
@@ -223,6 +239,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\UserListViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -329,6 +346,8 @@
     <Content Include="Views\Campaign\Write.cshtml" />
     <Content Include="Views\Campaign\Posts.cshtml" />
     <Content Include="Views\Campaign\CampaignNotFound.cshtml" />
+    <Content Include="Views\Home\UserDetails.cshtml" />
+    <Content Include="Views\Home\Campaigns.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,6 +366,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909061557287_initialaaaa.resx">
       <DependentUpon>201909061557287_initialaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909130920549_Name13.resx">
+      <DependentUpon>201909130920549_Name13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909130929390_name14.resx">
+      <DependentUpon>201909130929390_name14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909130933361_Name22.resx">
+      <DependentUpon>201909130933361_Name22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909131115389_wtf.resx">
+      <DependentUpon>201909131115389_wtf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

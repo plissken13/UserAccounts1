@@ -17,6 +17,6 @@ namespace UserAccounts.Models
 
         [Required] public double Sum { get; set; }
 
-        public string AuthorId { get; set; }
+        public string OwnerId { get; set; }
     }
 }

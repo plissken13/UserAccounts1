@@ -41,7 +41,7 @@
     @if (User.IsInRole("Admin"))
     {
         <div class="col-md-10">
-        @Html.DropDownListFor(x => x.AuthorId, ViewBag.Users as SelectList)
+        @Html.DropDownListFor(x => x.OwnerId, ViewBag.Users as SelectList)
         </div>
         }
 

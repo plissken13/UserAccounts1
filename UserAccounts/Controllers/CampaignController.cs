@@ -129,7 +129,7 @@ namespace UserAccounts.Controllers
                 Name = model.Name,
                 Description = model.Description,
                 RequiredSum = model.Sum,
-                OwnerId = model.AuthorId ?? User.Identity.GetUserId()
+                OwnerId = model.OwnerId ?? User.Identity.GetUserId()
             };
         }
 

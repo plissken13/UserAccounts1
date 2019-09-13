@@ -26,6 +26,32 @@ namespace UserAccounts.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult UserDetails(string id)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var user = db.Users.SingleOrDefault(x => x.Id == id);
+                if (user == null)
+                {
+                    return View("Index");
+                }
+
+                var campaigns = db.CampaignModels.Where(x => x.OwnerId == id).ToList();
+
+
+                var userViewModel = new UserViewModel
+                {
+                    Campaigns = campaigns,
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Status = ParseStatus(user.LockoutEndDateUtc),
+                    Role = GetUserRole(user)
+                };
+                return View(userViewModel);
+            }
+        }
+
         [Authorize]
         public ActionResult UserList()
         {
@@ -42,6 +68,11 @@ namespace UserAccounts.Controllers
 
                 return View(viewModel);
             }
+        }
+
+        private string GetUserRole(ApplicationUser user)
+        {
+            return user.IsInRole("Admin") ? "Admin" : "User";
         }
 
         private string ParseStatus(DateTime? lockoutEnd)
