@@ -10,6 +10,8 @@ namespace UserAccounts.Models
 
         public string Description { get; set; }
 
+        public string OwnerName { get; set; }
+
         public string OwnerId { get; set; }
         
         public double RequiredSum { get; set; }

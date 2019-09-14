@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using UserAccounts.Models;
@@ -39,17 +40,21 @@ namespace UserAccounts.Controllers
 
                 var campaigns = db.CampaignModels.Where(x => x.OwnerId == id).ToList();
 
-
-                var userViewModel = new UserViewModel
-                {
-                    Campaigns = campaigns,
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    Status = ParseStatus(user.LockoutEndDateUtc),
-                    Role = GetUserRole(user)
-                };
-                return View(userViewModel);
+                return View(GetUserViewModel(user, campaigns));
             }
+        }
+
+        public UserViewModel GetUserViewModel(ApplicationUser user, List<CampaignModel> campaigns)
+        {
+            var userViewModel = new UserViewModel
+            {
+                Campaigns = campaigns,
+                Id = user.Id,
+                UserName = user.UserName,
+                Status = ParseStatus(user.LockoutEndDateUtc),
+                Role = GetUserRole(user)
+            };
+            return userViewModel;
         }
 
         [Authorize]
@@ -64,6 +69,7 @@ namespace UserAccounts.Controllers
                     Id = x.Id,
                     UserName = x.UserName,
                     Status = ParseStatus(x.LockoutEndDateUtc),
+                    Role = GetUserRole(x)
                 });
 
                 return View(viewModel);

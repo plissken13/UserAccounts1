@@ -39,7 +39,7 @@
             <td>
                 @if (User.IsInRole("Admin") || User.Identity.GetUserId() == item.OwnerId)
                 {
-                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) 
+                    @Html.ActionLink("Edit", "Edit", new {id = item.Id})
                     @Html.ActionLink("Delete", "Delete", new {id = item.Id})
                 }
             </td>

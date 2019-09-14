@@ -1,4 +1,40 @@
-﻿function Locking() {
+﻿function SetAdminPermissions() {
+    $.ajax({
+        type: 'POST',
+        url: "/Roles/SetAdminPermissions",
+        data: { arr: getCheckedCheckBoxes() },
+        success: function (data) {
+            if (data === "True") {
+                location.reload();
+            } else {
+
+            }
+        },
+        error: function () {
+            alert("Error");
+        }
+    });
+}
+
+function SetUserPermissions() {
+    $.ajax({
+        type: 'POST',
+        url: "/Roles/SetUserPermissions",
+        data: { arr: getCheckedCheckBoxes() },
+        success: function (data) {
+            if (data === "True") {
+                location.reload();
+            } else {
+
+            }
+        },
+        error: function () {
+            alert("Error");
+        }
+    });
+}
+
+function Locking() {
     $.ajax({
         type: 'POST',
         url: "/Account/LockUser",

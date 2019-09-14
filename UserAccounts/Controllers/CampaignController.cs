@@ -32,7 +32,7 @@ namespace UserAccounts.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                db.CampaignModels.Add(GetCampaignModel(model));
+                db.CampaignModels.Add(GetCampaignModel(model, db));
                 db.SaveChanges();
             }
 
@@ -72,7 +72,7 @@ namespace UserAccounts.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                var campaign = GetCampaignModel(model);
+                var campaign = GetCampaignModel(model, db);
                 db.CampaignModels.AddOrUpdate(campaign);
                 db.SaveChanges();
                 return RedirectToAction("CampaignList", "Campaign");
@@ -121,15 +121,18 @@ namespace UserAccounts.Controllers
             }
         }
 
-        private CampaignModel GetCampaignModel(CreateCampaignViewModel model)
+        private CampaignModel GetCampaignModel(CreateCampaignViewModel model, ApplicationDbContext db)
         {
+            var ownerId = model.OwnerId ?? User.Identity.GetUserId();
+            var ownerName = db.Users.SingleOrDefault(x => x.Id == ownerId)?.UserName;
             return new CampaignModel
             {
                 Id = model.Id,
                 Name = model.Name,
                 Description = model.Description,
                 RequiredSum = model.Sum,
-                OwnerId = model.OwnerId ?? User.Identity.GetUserId()
+                OwnerName = ownerName,
+                OwnerId = ownerId
             };
         }
 
