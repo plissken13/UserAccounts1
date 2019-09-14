@@ -240,6 +240,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
     <Compile Include="Models\CreateCampaignViewModel.cs" />
+    <Compile Include="Models\DonationModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostModel.cs" />
@@ -353,6 +354,7 @@
     <Content Include="Views\Campaign\CampaignNotFound.cshtml" />
     <Content Include="Views\Home\UserDetails.cshtml" />
     <Content Include="Views\Home\Campaigns.cshtml" />
+    <Content Include="Views\Campaign\Donate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

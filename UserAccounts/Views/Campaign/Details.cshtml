@@ -54,6 +54,9 @@
             @Html.DisplayFor(model => model.CurrentSum)
         </dd>
 
+        <dd>
+            @Html.ActionLink("Donate", "Donate", new { id = Model.Id })
+        </dd>
     </dl>
 </div>
 <div>

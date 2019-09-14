@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Routing;
 using UserAccounts.Models;
 
 namespace UserAccounts.Controllers
@@ -157,6 +158,36 @@ namespace UserAccounts.Controllers
             }
 
             return RedirectToAction("CampaignList", "Campaign");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Donate(int id)
+        {
+            var model = new DonationModel()
+            {
+                CampaignId = id
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Donate(DonationModel model)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                var campaign = db.CampaignModels.SingleOrDefault(x => x.Id == model.CampaignId);
+                if (campaign == null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                campaign.CurrentSum += model.Sum;
+                db.CampaignModels.AddOrUpdate(campaign);
+                db.SaveChanges();
+                return RedirectToAction("CampaignList", "Campaign");
+            }
         }
     }
 }
