@@ -38,11 +38,17 @@ namespace UserAccounts.Models
 
         public DbSet<PostModel> PostModels { get; set; }
 
+        public DbSet<CommentsModel> CommentsModels { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PostModel>()
                 .HasRequired(s => s.Campaign)
                 .WithMany(g => g.Posts)
+                .HasForeignKey(s => s.CampaignId);
+            modelBuilder.Entity<CommentsModel>()
+                .HasRequired(s => s.Campaign)
+                .WithMany(g => g.Comments)
                 .HasForeignKey(s => s.CampaignId);
             base.OnModelCreating(modelBuilder);
         }

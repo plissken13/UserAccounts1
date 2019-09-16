@@ -128,3 +128,6 @@ C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.name1
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.Name22.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.wtf.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.name16.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.comments.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.comments1.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.comments3.resources

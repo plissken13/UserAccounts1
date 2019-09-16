@@ -236,9 +236,22 @@
     <Compile Include="Migrations\201909141257328_name16.Designer.cs">
       <DependentUpon>201909141257328_name16.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909161605065_comments.cs" />
+    <Compile Include="Migrations\201909161605065_comments.Designer.cs">
+      <DependentUpon>201909161605065_comments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909161621357_comments1.cs" />
+    <Compile Include="Migrations\201909161621357_comments1.Designer.cs">
+      <DependentUpon>201909161621357_comments1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909161709420_comments3.cs" />
+    <Compile Include="Migrations\201909161709420_comments3.Designer.cs">
+      <DependentUpon>201909161709420_comments3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
+    <Compile Include="Models\CommentsModel.cs" />
     <Compile Include="Models\CreateCampaignViewModel.cs" />
     <Compile Include="Models\DonationModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -355,6 +368,8 @@
     <Content Include="Views\Home\UserDetails.cshtml" />
     <Content Include="Views\Home\Campaigns.cshtml" />
     <Content Include="Views\Campaign\Donate.cshtml" />
+    <Content Include="Views\Campaign\Comments.cshtml" />
+    <Content Include="Views\Campaign\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -389,6 +404,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909141257328_name16.resx">
       <DependentUpon>201909141257328_name16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909161605065_comments.resx">
+      <DependentUpon>201909161605065_comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909161621357_comments1.resx">
+      <DependentUpon>201909161621357_comments1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909161709420_comments3.resx">
+      <DependentUpon>201909161709420_comments3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

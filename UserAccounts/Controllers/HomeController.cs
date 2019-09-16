@@ -28,6 +28,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult UserDetails(string id)
         {
             using (var db = new ApplicationDbContext())
@@ -57,7 +58,7 @@ namespace UserAccounts.Controllers
             return userViewModel;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult UserList()
         {
             ViewBag.Message = "The user list.";
