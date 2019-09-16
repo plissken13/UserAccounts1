@@ -143,8 +143,8 @@ namespace UserAccounts.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
-                .ToList(), "Name", "Name");
+            //ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
+            //    .ToList(), "Name", "Name");
             return View();
         }
 
@@ -174,10 +174,10 @@ namespace UserAccounts.Controllers
                     //ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
                     //                  + "before you can log in.";
 
-                    await UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    await UserManager.AddToRoleAsync(user.Id, "User");
 
-                    ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
-                        .ToList(), "Name", "Name");
+                    //ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
+                    //    .ToList(), "Name", "Name");
 
                     return RedirectToAction("Index", "Home");
                 }
