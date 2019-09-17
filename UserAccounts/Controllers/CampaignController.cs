@@ -219,7 +219,7 @@ namespace UserAccounts.Controllers
                 campaign.CurrentSum += model.Sum;
                 db.CampaignModels.AddOrUpdate(campaign);
                 db.SaveChanges();
-                return RedirectToAction("CampaignList", "Campaign");
+                return RedirectToAction("Details", "Campaign", new {id = campaign.Id});
             }
         }
 
