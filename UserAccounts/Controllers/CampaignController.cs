@@ -163,7 +163,7 @@ namespace UserAccounts.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("CampaignList", "Campaign");
+            return RedirectToAction("Details", "Campaign", new {id = post.CampaignId});
         }
 
         [Authorize]
@@ -190,7 +190,7 @@ namespace UserAccounts.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("CampaignList", "Campaign");
+            return RedirectToAction("Details", "Campaign", new { id = comment.CampaignId });
         }
 
         [HttpGet]
