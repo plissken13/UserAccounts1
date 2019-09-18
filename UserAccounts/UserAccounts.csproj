@@ -260,10 +260,15 @@
     <Compile Include="Models\UserListViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Views\Shared\_Layout.ru.Designer.cs">
+    <Compile Include="Resources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_Layout.ru.resx</DependentUpon>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Global.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.ru.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -378,9 +383,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\Views\Account\" />
-    <Folder Include="Resources\Views\Campaign\" />
-    <Folder Include="Resources\Views\Manage\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Roles\" />
   </ItemGroup>
@@ -423,9 +425,15 @@
     <EmbeddedResource Include="Migrations\201909161709420_comments3.resx">
       <DependentUpon>201909161709420_comments3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Views\Shared\_Layout.ru.resx">
+    <EmbeddedResource Include="Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>_Layout.ru.Designer.cs</LastGenOutput>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Global.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

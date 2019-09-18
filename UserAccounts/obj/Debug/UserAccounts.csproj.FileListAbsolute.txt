@@ -131,6 +131,7 @@ C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.name1
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.comments.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.comments1.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.comments3.resources
-C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Views.Shared._Layout.ru.resources
 C:\Development\UserAccounts\UserAccounts\bin\ru\UserAccounts.resources.dll
 C:\Development\UserAccounts\UserAccounts\obj\Debug\ru\UserAccounts.resources.dll
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Global.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Global.ru.resources
