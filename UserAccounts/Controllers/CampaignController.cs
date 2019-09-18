@@ -9,6 +9,7 @@ using UserAccounts.Models;
 
 namespace UserAccounts.Controllers
 {
+    [Authorize]
     public class CampaignController : Controller
     {
         public ActionResult Create()
@@ -93,6 +94,10 @@ namespace UserAccounts.Controllers
 
                 var posts = db.PostModels.Where(x => x.CampaignId == id).ToList();
                 campaign.Posts = posts;
+
+                var comments = db.CommentsModels.Where(x => x.CampaignId == id).ToList();
+                campaign.Comments = comments;
+
                 return View(campaign);
             }
         }
@@ -114,6 +119,7 @@ namespace UserAccounts.Controllers
             return RedirectToAction("CampaignList", "Campaign");
         }
 
+        [Authorize]
         public ActionResult CampaignList()
         {
             using (var db = new ApplicationDbContext())
@@ -157,7 +163,34 @@ namespace UserAccounts.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("CampaignList", "Campaign");
+            return RedirectToAction("Details", "Campaign", new {id = post.CampaignId});
+        }
+
+        [Authorize]
+        public ActionResult Comment(int id)
+        {
+            var comment = new CommentsModel()
+            {
+                CampaignId = id
+            };
+            return View(comment);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Comment(CommentsModel comment)
+        {
+            using (var db = new ApplicationDbContext())
+            {
+
+                db.CommentsModels.Add(comment);
+                var authorId = User.Identity.GetUserId();
+                var authorName = db.Users.SingleOrDefault(x => x.Id == authorId)?.UserName;
+                comment.AuthorName = authorName;
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Details", "Campaign", new { id = comment.CampaignId });
         }
 
         [HttpGet]
@@ -186,8 +219,10 @@ namespace UserAccounts.Controllers
                 campaign.CurrentSum += model.Sum;
                 db.CampaignModels.AddOrUpdate(campaign);
                 db.SaveChanges();
-                return RedirectToAction("CampaignList", "Campaign");
+                return RedirectToAction("Details", "Campaign", new {id = campaign.Id});
             }
         }
+
+
     }
 }

@@ -19,5 +19,7 @@ namespace UserAccounts.Models
         public double CurrentSum { get; set; }
 
         public IList<PostModel> Posts { get; set; }
+
+        public IList<CommentsModel> Comments { get; set; }
     }
 }
