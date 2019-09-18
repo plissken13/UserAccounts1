@@ -117,37 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Campaigns" xml:space="preserve">
-    <value>Campaigns</value>
+  <data name="Confirm" xml:space="preserve">
+    <value>Don't forget to confirm your email!</value>
   </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error.</value>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create a new account.</value>
   </data>
-  <data name="ErrorOcc" xml:space="preserve">
-    <value>An error occurred while processing your request.</value>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Enter your email.</value>
   </data>
-  <data name="Hello" xml:space="preserve">
-    <value>Hello</value>
+  <data name="ForgotPass" xml:space="preserve">
+    <value>Forgot your password?</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="ForgotPassConfirm" xml:space="preserve">
+    <value>Forgot Password Confirmation.</value>
   </data>
-  <data name="LockedOut" xml:space="preserve">
-    <value>This account has been locked out, please try again later.</value>
+  <data name="PleaseCheck" xml:space="preserve">
+    <value>Please check your email to reset your password.</value>
   </data>
-  <data name="LockedOutTitle" xml:space="preserve">
-    <value>Locked Out.</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="Logoff" xml:space="preserve">
-    <value>Log off</value>
+  <data name="Recover" xml:space="preserve">
+    <value>Recover</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
+  <data name="RegisterNew" xml:space="preserve">
+    <value>Register as a new user.</value>
+  </data>
+  <data name="UseAccount" xml:space="preserve">
+    <value>Use a local account to log in.</value>
   </data>
 </root>

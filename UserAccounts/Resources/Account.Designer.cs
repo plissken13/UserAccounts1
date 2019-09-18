@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Global {
+    public class Account {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Global() {
+        internal Account() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UserAccounts.Resources.Global", typeof(Global).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UserAccounts.Resources.Account", typeof(Account).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,65 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Campaigns.
+        ///   Looks up a localized string similar to Don&apos;t forget to confirm your email!.
         /// </summary>
-        public static string Campaigns {
+        public static string Confirm {
             get {
-                return ResourceManager.GetString("Campaigns", resourceCulture);
+                return ResourceManager.GetString("Confirm", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error..
+        ///   Looks up a localized string similar to Create a new account..
         /// </summary>
-        public static string Error {
+        public static string CreateAccount {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
+                return ResourceManager.GetString("CreateAccount", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occurred while processing your request..
+        ///   Looks up a localized string similar to Enter your email..
         /// </summary>
-        public static string ErrorOcc {
+        public static string EnterEmail {
             get {
-                return ResourceManager.GetString("ErrorOcc", resourceCulture);
+                return ResourceManager.GetString("EnterEmail", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello.
+        ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
-        public static string Hello {
+        public static string ForgotPass {
             get {
-                return ResourceManager.GetString("Hello", resourceCulture);
+                return ResourceManager.GetString("ForgotPass", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to Forgot Password Confirmation..
         /// </summary>
-        public static string Home {
+        public static string ForgotPassConfirm {
             get {
-                return ResourceManager.GetString("Home", resourceCulture);
+                return ResourceManager.GetString("ForgotPassConfirm", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This account has been locked out, please try again later..
+        ///   Looks up a localized string similar to Please check your email to reset your password..
         /// </summary>
-        public static string LockedOut {
+        public static string PleaseCheck {
             get {
-                return ResourceManager.GetString("LockedOut", resourceCulture);
+                return ResourceManager.GetString("PleaseCheck", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locked Out..
+        ///   Looks up a localized string similar to Recover.
         /// </summary>
-        public static string LockedOutTitle {
+        public static string Recover {
             get {
-                return ResourceManager.GetString("LockedOutTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Login.
-        /// </summary>
-        public static string Login {
-            get {
-                return ResourceManager.GetString("Login", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Log off.
-        /// </summary>
-        public static string Logoff {
-            get {
-                return ResourceManager.GetString("Logoff", resourceCulture);
+                return ResourceManager.GetString("Recover", resourceCulture);
             }
         }
         
@@ -151,11 +133,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Users.
+        ///   Looks up a localized string similar to Register as a new user..
         /// </summary>
-        public static string Users {
+        public static string RegisterNew {
             get {
-                return ResourceManager.GetString("Users", resourceCulture);
+                return ResourceManager.GetString("RegisterNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a local account to log in..
+        /// </summary>
+        public static string UseAccount {
+            get {
+                return ResourceManager.GetString("UseAccount", resourceCulture);
             }
         }
     }

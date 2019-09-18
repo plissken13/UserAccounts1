@@ -1,5 +1,6 @@
 ﻿@using System.Web.Mvc.Html
 @using Microsoft.AspNet.Identity
+@using Westwind.Web.Markdown
 @model UserAccounts.Models.CampaignModel
 
 @{
@@ -25,7 +26,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.Raw(Markdown.Parse(Model.Description))
         </dd>
 
         <dt>

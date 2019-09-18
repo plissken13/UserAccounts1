@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Campaigns" xml:space="preserve">
+    <value>Кампании</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка.</value>
+  </data>
+  <data name="ErrorOcc" xml:space="preserve">
+    <value>При обработке Вашего запроса произошла ошибка.</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Здравствуйте</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
+  </data>
+  <data name="LockedOut" xml:space="preserve">
+    <value>Этот аккаунт заблокирован, пожалуйста, попробуйте позже.</value>
+  </data>
+  <data name="LockedOutTitle" xml:space="preserve">
+    <value>Заблокирован.</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Logoff" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
   </data>
 </root>
