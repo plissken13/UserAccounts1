@@ -138,10 +138,7 @@ C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Global
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Account.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Account.ru.resources
 C:\Development\UserAccounts\UserAccounts\bin\Markdig.dll
-C:\Development\UserAccounts\UserAccounts\bin\MarkdownSharp.dll
 C:\Development\UserAccounts\UserAccounts\bin\Westwind.Web.Markdown.dll
 C:\Development\UserAccounts\UserAccounts\bin\Markdig.pdb
 C:\Development\UserAccounts\UserAccounts\bin\Markdig.xml
-C:\Development\UserAccounts\UserAccounts\bin\MarkdownSharp.pdb
-C:\Development\UserAccounts\UserAccounts\bin\MarkdownSharp.xml
 C:\Development\UserAccounts\UserAccounts\bin\Westwind.Web.Markdown.xml
