@@ -142,3 +142,4 @@ C:\Development\UserAccounts\UserAccounts\bin\Westwind.Web.Markdown.dll
 C:\Development\UserAccounts\UserAccounts\bin\Markdig.pdb
 C:\Development\UserAccounts\UserAccounts\bin\Markdig.xml
 C:\Development\UserAccounts\UserAccounts\bin\Westwind.Web.Markdown.xml
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.image.resources

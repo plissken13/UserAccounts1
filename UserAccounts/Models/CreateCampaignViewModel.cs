@@ -17,6 +17,8 @@ namespace UserAccounts.Models
 
         [Required] public double Sum { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public string OwnerId { get; set; }
     }
 }

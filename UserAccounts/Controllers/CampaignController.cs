@@ -139,7 +139,8 @@ namespace UserAccounts.Controllers
                 Description = model.Description,
                 RequiredSum = model.Sum,
                 OwnerName = ownerName,
-                OwnerId = ownerId
+                OwnerId = ownerId,
+                ImageUrl = model.ImageUrl
             };
         }
 

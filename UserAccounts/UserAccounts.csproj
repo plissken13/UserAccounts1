@@ -254,6 +254,10 @@
     <Compile Include="Migrations\201909161709420_comments3.Designer.cs">
       <DependentUpon>201909161709420_comments3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909200838446_image.cs" />
+    <Compile Include="Migrations\201909200838446_image.Designer.cs">
+      <DependentUpon>201909200838446_image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CampaignModel.cs" />
@@ -440,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909161709420_comments3.resx">
       <DependentUpon>201909161709420_comments3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909200838446_image.resx">
+      <DependentUpon>201909200838446_image.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Account.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
