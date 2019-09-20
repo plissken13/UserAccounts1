@@ -11,17 +11,14 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-<nav class="navbar navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar fixed-top navbar-expand-lg navbar-light bg-dark">
 
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active nav-link">
-            @Html.ActionLink(Resources.Global.Home, "Index", "Home")
+        <li class="nav-item nav-link">
+            @Html.ActionLink(Resources.Global.Users, "UserList", "Home", null, new {@class = "navigation-link"})
         </li>
         <li class="nav-item nav-link">
-            @Html.ActionLink(Resources.Global.Users, "UserList", "Home")
-        </li>
-        <li class="nav-item nav-link">
-            @Html.ActionLink(Resources.Global.Campaigns, "CampaignList", "Campaign")
+            @Html.ActionLink(Resources.Global.Campaigns, "CampaignList", "Campaign", null, new { @class = "navigation-link" })
         </li>
     </ul>
     @Html.Partial("_LoginPartial")

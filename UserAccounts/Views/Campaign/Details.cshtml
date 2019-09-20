@@ -1,18 +1,23 @@
 ﻿@using System.Web.Mvc.Html
+@using Antlr.Runtime.Tree
 @using Microsoft.AspNet.Identity
 @using Westwind.Web.Markdown
 @model UserAccounts.Models.CampaignModel
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
 <div>
-    <h4>CampaignModel</h4>
-    <hr />
+    <h2 class="page-header">
+        @Model.Name
+    </h2>
+    <div class="header-button-container">
+    @if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.OwnerId)
+    {
+        @Html.ActionLink("Edit", "Edit", "Campaign", null, new {@class = "btn btn-outline-secondary"})
+    }
+    </div>
+    <hr/>
+
     <img src="@Model.ImageUrl"/>
+
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -35,7 +40,7 @@
         </dt>
 
         <dd>
-            @Html.ActionLink(Model.OwnerName, "UserDetails", "Home", new { id = Model.OwnerId }, new object())
+            @Html.ActionLink(Model.OwnerName, "UserDetails", "Home", new {id = Model.OwnerId}, new object())
         </dd>
 
         <dt>
@@ -55,26 +60,22 @@
         </dd>
 
         <dd>
-            @Html.ActionLink("Donate", "Donate", new { id = Model.Id })
+            @Html.ActionLink("Donate", "Donate", new {id = Model.Id})
         </dd>
     </dl>
 </div>
 <div>
     @Html.Partial("Posts", Model.Posts)
 </div>
+@if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.OwnerId)
+{
+    <p>
+        @Html.ActionLink("Write Post", "Write", new {id = Model.Id})
+    </p>
+}
 <div>
     @Html.Partial("Comments", Model.Comments)
 </div>
 <p>
-    @Html.ActionLink("Comment", "Comment", new { id = Model.Id })
+    @Html.ActionLink("Comment", "Comment", new {id = Model.Id})
 </p>
-
-@if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.OwnerId)
-{
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-    </p>
-    <p>
-        @Html.ActionLink("Write Post", "Write", new { id = Model.Id })
-    </p>
-}

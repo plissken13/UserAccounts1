@@ -11,9 +11,7 @@
         <button type="button" class="btn btn-success" onclick="Unlocking()">Unblock</button>
         <button type="button" class="btn btn-warning" onclick="Locking()">Block</button>
         <button type="button" class="btn btn-danger" onclick="Delete()">Delete</button>
-        <button type="button" class="btn btn-secondary" onclick="SetAdminPermissions()">Set as admin</button>
-        <button type="button" class="btn btn-secondary" onclick="SetUserPermissions()">Set as user</button>
-    </div>
+  </div>
 </div>
 <table class="table">
     <tr>
@@ -21,32 +19,39 @@
             <input id="checkall" type="checkbox" />
         </th>
         <th>
-            User name
+            <h5><span class="badge badge-pill badge-dark">User name</span></h5>
         </th>
         <th>
-            Status
+            <h5><span class="badge badge-pill badge-dark">Status</span></h5>
         </th>
         <th>
-            Role
+            <h5><span class="badge badge-pill badge-dark">Role</span></h5>
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            <input class="checkbox" type="checkbox" name="statuses" value="@item.Id">
-        </td>
-        <td>
-            @Html.ActionLink(item.UserName, "UserDetails", new { id = item.Id })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role)
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <input class="checkbox" type="checkbox" name="statuses" value="@item.Id">
+            </td>
+            <td>
+                @Html.ActionLink(item.UserName, "UserDetails", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+        </tr>
     }
 
 </table>
+
+<div class="btn justify-content-end">
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary" onclick="SetAdminPermissions()">Set as admin</button>
+        <button type="button" class="btn btn-secondary" onclick="SetUserPermissions()">Set as user</button>
+    </div>
+</div>
