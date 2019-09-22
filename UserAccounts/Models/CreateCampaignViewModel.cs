@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace UserAccounts.Models
@@ -20,5 +21,7 @@ namespace UserAccounts.Models
         public string ImageUrl { get; set; }
 
         public string OwnerId { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }

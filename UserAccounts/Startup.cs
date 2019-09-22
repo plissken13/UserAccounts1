@@ -1,12 +1,6 @@
-﻿using System;
-using System.Globalization;
-using System.Threading;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
-using Microsoft.Owin.Builder;
 using Owin;
 using UserAccounts.Models;
 
@@ -20,8 +14,6 @@ namespace UserAccounts
         {
             ConfigureAuth(app);
             CreateRolesAndUsers();
-            ControllerBuilder.Current.SetControllerFactory(
-                new DefaultControllerFactory(new MultiLanguageControllerActivator()));
         }
 
         private void CreateRolesAndUsers()
@@ -59,24 +51,6 @@ namespace UserAccounts
             {
                 UserManager.AddToRole(user.Id, "Admin");
             }
-        }
-    }
-
-    public class MultiLanguageControllerActivator : IControllerActivator
-    {
-        private string FallBackLanguage = "en-US";
-
-        public IController Create(RequestContext requestContext, Type controllerType)
-        {
-            if (requestContext.HttpContext.Request.UserLanguages != null)
-            {
-                FallBackLanguage = requestContext.HttpContext.Request.UserLanguages[0] ?? FallBackLanguage;
-            }
-
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(FallBackLanguage);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(FallBackLanguage);
-
-            return DependencyResolver.Current.GetService(controllerType) as IController;
         }
     }
 }

@@ -143,3 +143,13 @@ C:\Development\UserAccounts\UserAccounts\bin\Markdig.pdb
 C:\Development\UserAccounts\UserAccounts\bin\Markdig.xml
 C:\Development\UserAccounts\UserAccounts\bin\Westwind.Web.Markdown.xml
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.image.resources
+C:\Development\UserAccounts\UserAccounts\bin\PagedList.dll
+C:\Development\UserAccounts\UserAccounts\bin\PagedList.Mvc.dll
+C:\Development\UserAccounts\UserAccounts\bin\PagedList.xml
+C:\Development\UserAccounts\UserAccounts\bin\PagedList.Mvc.xml
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.createdoncampaighnsahfiasdf.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.uhpb.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.hvvyivs.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.num1.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.num2.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.num3.resources

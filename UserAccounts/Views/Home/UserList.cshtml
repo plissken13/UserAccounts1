@@ -1,31 +1,41 @@
 ﻿@model IEnumerable<UserAccounts.Models.UserListViewModel>
 
 @{
-    ViewBag.Title = "UserList";
+    ViewBag.Title = "Users";
 }
 @Scripts.Render("~/bundles/UserAccounts")
 
+<h2 class="page-header">
+    @ViewBag.Title
+</h2>
+
 <meta charset="utf-8">
-<div class="nav justify-content-end">
+<div class="header-button-container">
     <div class="navbar-brand">
         <button type="button" class="btn btn-success" onclick="Unlocking()">Unblock</button>
         <button type="button" class="btn btn-warning" onclick="Locking()">Block</button>
         <button type="button" class="btn btn-danger" onclick="Delete()">Delete</button>
-  </div>
+    </div>
 </div>
 <table class="table">
     <tr>
         <th>
-            <input id="checkall" type="checkbox" />
+            <input id="checkall" type="checkbox"/>
         </th>
         <th>
-            <h5><span class="badge badge-pill badge-dark">User name</span></h5>
+            <h5>
+                <span class="badge badge-pill badge-dark">User name</span>
+            </h5>
         </th>
         <th>
-            <h5><span class="badge badge-pill badge-dark">Status</span></h5>
+            <h5>
+                <span class="badge badge-pill badge-dark">Status</span>
+            </h5>
         </th>
         <th>
-            <h5><span class="badge badge-pill badge-dark">Role</span></h5>
+            <h5>
+                <span class="badge badge-pill badge-dark">Role</span>
+            </h5>
         </th>
     </tr>
 
@@ -36,7 +46,7 @@
                 <input class="checkbox" type="checkbox" name="statuses" value="@item.Id">
             </td>
             <td>
-                @Html.ActionLink(item.UserName, "UserDetails", new { id = item.Id })
+                @Html.ActionLink(item.UserName, "UserDetails", new {id = item.Id})
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)

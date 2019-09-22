@@ -47,9 +47,22 @@ td.caption {
 
 .header-button-container {
     display: inline;
-    float: right
+    float: right;
+}
+
+.inline-button {
+    margin-left: 5px;
+    display: inline;
 }
 
 h2.page-header {
     display: inline
+}
+
+.date-container {
+    margin-bottom: 3%
+}
+
+.pagination-header {
+    margin-bottom: 10px
 }

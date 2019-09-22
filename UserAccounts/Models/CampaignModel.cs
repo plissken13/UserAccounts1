@@ -25,6 +25,8 @@ namespace UserAccounts.Models
 
         public string ImageUrl { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
         public IList<PostModel> Posts { get; set; }
 
         public IList<CommentsModel> Comments { get; set; }

@@ -1,5 +1,4 @@
 ﻿@using System.Web.Mvc.Html
-@using Antlr.Runtime.Tree
 @using Microsoft.AspNet.Identity
 @using Westwind.Web.Markdown
 @model UserAccounts.Models.CampaignModel
@@ -8,19 +7,30 @@
     <h2 class="page-header">
         @Model.Name
     </h2>
+
     <div class="header-button-container">
-    @if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.OwnerId)
-    {
-        @Html.ActionLink("Edit", "Edit", "Campaign", null, new {@class = "btn btn-outline-secondary"})
-    }
+        @if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.OwnerId)
+        {
+            <div class="inline-button">
+                @Html.ActionLink("Edit", "Edit", "Campaign", new {id = Model.Id}, new {@class = "btn btn-outline-secondary"})
+            </div>
+            <div class="inline-button">
+                @Html.ActionLink("Delete", "Delete", "Campaign", new {id = Model.Id}, new {@class = "btn btn-outline-danger"})
+            </div>
+        }
     </div>
+
     <hr/>
+
+    <div class="date-container">
+        @Html.DisplayFor(model => model.CreatedOn)
+    </div>
 
     <img src="@Model.ImageUrl"/>
 
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            <b>Campaign name</b>
         </dt>
 
         <dd>
@@ -28,7 +38,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            <b>Description</b>
         </dt>
 
         <dd>
@@ -36,7 +46,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OwnerName)
+            <b>Owner name</b>
         </dt>
 
         <dd>
@@ -44,7 +54,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RequiredSum)
+            <b>Required sum</b>
         </dt>
 
         <dd>
@@ -52,7 +62,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CurrentSum)
+            <b>Current sum</b>
         </dt>
 
         <dd>

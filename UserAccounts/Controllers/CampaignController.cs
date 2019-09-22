@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
+using PagedList;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Routing;
 using UserAccounts.Models;
 
 namespace UserAccounts.Controllers
@@ -34,7 +36,9 @@ namespace UserAccounts.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                db.CampaignModels.Add(GetCampaignModel(model, db));
+                var campaignModel = GetCampaignModel(model, db);
+                campaignModel.CreatedOn = DateTime.Now;
+                db.CampaignModels.Add(campaignModel);
                 db.SaveChanges();
             }
 
@@ -47,7 +51,8 @@ namespace UserAccounts.Controllers
             {
                 Name = campaign.Name,
                 Description = campaign.Description,
-                Sum = campaign.RequiredSum
+                Sum = campaign.RequiredSum,
+                CreatedOn = campaign.CreatedOn
             };
             return temp;
         }
@@ -77,7 +82,7 @@ namespace UserAccounts.Controllers
                 var campaign = GetCampaignModel(model, db);
                 db.CampaignModels.AddOrUpdate(campaign);
                 db.SaveChanges();
-                return RedirectToAction("CampaignList", "Campaign");
+                return RedirectToAction("Details", "Campaign", new {id = model.Id});
             }
         }
 
@@ -119,13 +124,51 @@ namespace UserAccounts.Controllers
             return RedirectToAction("CampaignList", "Campaign");
         }
 
+
+
         [Authorize]
-        public ActionResult CampaignList()
+        public ActionResult CampaignList(string sortOrder, string currentSort, int? page)
         {
-            using (var db = new ApplicationDbContext())
+            ApplicationDbContext db = new ApplicationDbContext();
+            int pageSize = 3;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            ViewBag.CurrentSort = sortOrder;
+            sortOrder = String.IsNullOrEmpty(sortOrder) ? "Name" : sortOrder;
+            IPagedList<CampaignModel> campaigns = null;
+            switch (sortOrder)
             {
-                return View(db.CampaignModels.ToList());
+                case "CreatedOn":
+                    if (sortOrder.Equals(currentSort))
+                        campaigns = db.CampaignModels.OrderByDescending
+                            (m => m.CreatedOn).ToPagedList(pageIndex, pageSize);
+                    else
+                        campaigns = db.CampaignModels.OrderBy
+                            (m => m.CreatedOn).ToPagedList(pageIndex, pageSize);
+                    break;
+                case "Name":
+                    if (sortOrder.Equals(currentSort))
+                        campaigns = db.CampaignModels.OrderByDescending
+                                (m => m.Name).ToPagedList(pageIndex, pageSize);
+                    else
+                        campaigns = db.CampaignModels.OrderBy
+                                (m => m.Name).ToPagedList(pageIndex, pageSize);
+                    break;
+                case "RequiredSum":
+                    if (sortOrder.Equals(currentSort))
+                        campaigns = db.CampaignModels.OrderByDescending
+                                (m => m.RequiredSum).ToPagedList(pageIndex, pageSize);
+                    else
+                        campaigns = db.CampaignModels.OrderBy
+                                (m => m.RequiredSum).ToPagedList(pageIndex, pageSize);
+                    break;
             }
+            return View(campaigns);
+
+            //using (var db = new ApplicationDbContext())
+            //{
+            //    return View(db.CampaignModels.ToList());
+            //}
         }
 
         private CampaignModel GetCampaignModel(CreateCampaignViewModel model, ApplicationDbContext db)
@@ -140,7 +183,8 @@ namespace UserAccounts.Controllers
                 RequiredSum = model.Sum,
                 OwnerName = ownerName,
                 OwnerId = ownerId,
-                ImageUrl = model.ImageUrl
+                ImageUrl = model.ImageUrl,
+                CreatedOn = model.CreatedOn
             };
         }
 
@@ -223,7 +267,5 @@ namespace UserAccounts.Controllers
                 return RedirectToAction("Details", "Campaign", new {id = campaign.Id});
             }
         }
-
-
     }
 }
