@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Threading;
 using System.Web.Mvc;
 using UserAccounts.Models;
 
 namespace UserAccounts.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()

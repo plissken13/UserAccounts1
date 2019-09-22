@@ -55,13 +55,13 @@ namespace UserAccounts
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "",
-               appSecret: "");
+               appId: "446415506218402",
+               appSecret: "04570da56328655742d6b41a30cf2c03");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "",
-                ClientSecret = ""
+                ClientId = "73506565366-3le6p02h95c0pb7rnobl46geehnmems5.apps.googleusercontent.com",
+                ClientSecret = "d5aDjnc4gybo530LI9h-S-45"
             });
         }
     }
