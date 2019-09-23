@@ -4,7 +4,7 @@
 @using Westwind.Web.Markdown
 @using SelectList = System.Web.Mvc.SelectList
 @{
-    ViewBag.Title = "Campaigns";
+    ViewBag.Title = @Resources.Campaign.Campaigns;
 }
 
 <h2 class="page-header">
@@ -12,16 +12,16 @@
 </h2>
 
 <div class="header-button-container">
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-outline-secondary" })
+    @Html.ActionLink(Resources.Campaign.CreateNew, "Create", null, new { @class = "btn btn-outline-secondary" })
 </div>
 
-<h5 style="margin-top: 10px">Sort by:</h5>
+<h5 style="margin-top: 10px">@Resources.Campaign.SortBy</h5>
 <div style="margin-left: 5px">
-    @Html.ActionLink("Name", null, new { sortOrder = "Name"})
+    @Html.ActionLink(Resources.Campaign.Name, null, new { sortOrder = "Name"})
 
-    @Html.ActionLink("Date", null, new { sortOrder = "CreatedOn" })
+    @Html.ActionLink(Resources.Campaign.Date, null, new { sortOrder = "CreatedOn" })
 
-    @Html.ActionLink("Required sum", null, new { sortOrder = "RequiredSum" })
+    @Html.ActionLink(Resources.Campaign.RequiredSum, null, new { sortOrder = "RequiredSum" })
 </div>
 
 @foreach (var item in Model)
@@ -43,12 +43,12 @@
         <tr>
             <td>
                 @Html.Raw(Markdown.Parse(item.ShortenedDescription))
-                @Html.ActionLink("Show more", "Details", new { id = item.Id })
+                @Html.ActionLink(Resources.Campaign.ShowMore, "Details", new { id = item.Id })
             </td>
         </tr>
         <tr>
             <td>
-                <b>We need: <i>$@item.RequiredSum</i>.</b>
+                <b>@Resources.Campaign.WeNeed <i>$@item.RequiredSum</i>.</b>
             </td>
         </tr>
 

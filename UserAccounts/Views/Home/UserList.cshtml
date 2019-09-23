@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<UserAccounts.Models.UserListViewModel>
 
 @{
-    ViewBag.Title = "Users";
+    ViewBag.Title = Resources.Global.Users;
 }
 @Scripts.Render("~/bundles/UserAccounts")
 
@@ -12,9 +12,9 @@
 <meta charset="utf-8">
 <div class="header-button-container">
     <div class="navbar-brand">
-        <button type="button" class="btn btn-success" onclick="Unlocking()">Unblock</button>
-        <button type="button" class="btn btn-warning" onclick="Locking()">Block</button>
-        <button type="button" class="btn btn-danger" onclick="Delete()">Delete</button>
+        <button type="button" class="btn btn-success" onclick="Unlocking()">@Resources.Global.Unblock</button>
+        <button type="button" class="btn btn-warning" onclick="Locking()">@Resources.Global.Block</button>
+        <button type="button" class="btn btn-danger" onclick="Delete()">@Resources.Campaign.Delete</button>
     </div>
 </div>
 <table class="table">
@@ -24,17 +24,17 @@
         </th>
         <th>
             <h5>
-                <span class="badge badge-pill badge-dark">User name</span>
+                <span class="badge badge-pill badge-dark">@Resources.Global.UserName</span>
             </h5>
         </th>
         <th>
             <h5>
-                <span class="badge badge-pill badge-dark">Status</span>
+                <span class="badge badge-pill badge-dark">@Resources.Global.Status</span>
             </h5>
         </th>
         <th>
             <h5>
-                <span class="badge badge-pill badge-dark">Role</span>
+                <span class="badge badge-pill badge-dark">@Resources.Global.Role</span>
             </h5>
         </th>
     </tr>
@@ -61,7 +61,7 @@
 
 <div class="btn justify-content-end">
     <div class="btn-group">
-        <button type="button" class="btn btn-secondary" onclick="SetAdminPermissions()">Set as admin</button>
-        <button type="button" class="btn btn-secondary" onclick="SetUserPermissions()">Set as user</button>
+        <button type="button" class="btn btn-secondary" onclick="SetAdminPermissions()">@Resources.Global.SetAdmin</button>
+        <button type="button" class="btn btn-secondary" onclick="SetUserPermissions()">@Resources.Global.SetUser</button>
     </div>
 </div>

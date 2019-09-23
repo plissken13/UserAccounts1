@@ -117,20 +117,72 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AF1" xml:space="preserve">
+    <value>You've successfully authenticated with</value>
+  </data>
+  <data name="AF2" xml:space="preserve">
+    <value>Please enter a user name for this site below and click the Register button to finish the logging in.</value>
+  </data>
+  <data name="AnotherService" xml:space="preserve">
+    <value>Use another service to log in.</value>
+  </data>
+  <data name="Associate" xml:space="preserve">
+    <value>Associate your account</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Association Form</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>click here to Log in</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Don't forget to confirm your email!</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
   </data>
   <data name="CreateAccount" xml:space="preserve">
     <value>Create a new account.</value>
   </data>
+  <data name="CreatePassword" xml:space="preserve">
+    <value>Create password</value>
+  </data>
   <data name="EnterEmail" xml:space="preserve">
     <value>Enter your email.</value>
+  </data>
+  <data name="ExternalLogin" xml:space="preserve">
+    <value>Log in using external account:</value>
   </data>
   <data name="ForgotPass" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
   <data name="ForgotPassConfirm" xml:space="preserve">
     <value>Forgot Password Confirmation.</value>
+  </data>
+  <data name="HasBeenReset" xml:space="preserve">
+    <value>Your password has been reset. Please</value>
+  </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Login failure.</value>
+  </data>
+  <data name="ManageExternal" xml:space="preserve">
+    <value>Manage external logins</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NoLocal" xml:space="preserve">
+    <value>You do not have a local username/password for this site. Add a local
+    account so you can log in without an external login.</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="PleaseCheck" xml:space="preserve">
     <value>Please check your email to reset your password.</value>
@@ -143,6 +195,27 @@
   </data>
   <data name="RegisterNew" xml:space="preserve">
     <value>Register as a new user.</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove {0} login from your account</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ResetConfirm" xml:space="preserve">
+    <value>Reset password confirmation</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="ThanksForConfirm" xml:space="preserve">
+    <value>Thank you for confirming your email. Please</value>
   </data>
   <data name="UseAccount" xml:space="preserve">
     <value>Use a local account to log in.</value>

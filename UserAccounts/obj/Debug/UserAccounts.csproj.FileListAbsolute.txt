@@ -153,3 +153,10 @@ C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.hvvyi
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.num1.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.num2.resources
 C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Migrations.num3.resources
+C:\Development\UserAccounts\UserAccounts\bin\System.Configuration.ConfigurationManager.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.AccessControl.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.Permissions.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Security.Principal.Windows.dll
+C:\Development\UserAccounts\UserAccounts\bin\System.Data.SqlClient.dll
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Campaign.resources
+C:\Development\UserAccounts\UserAccounts\obj\Debug\UserAccounts.Resources.Campaign.ru.resources

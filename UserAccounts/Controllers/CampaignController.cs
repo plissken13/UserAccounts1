@@ -261,6 +261,11 @@ namespace UserAccounts.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
+                if (model.Sum < 0)
+                {
+                    return RedirectToAction("Donate", "Campaign", new {id = model.CampaignId});
+                }
+
                 campaign.CurrentSum += model.Sum;
                 db.CampaignModels.AddOrUpdate(campaign);
                 db.SaveChanges();

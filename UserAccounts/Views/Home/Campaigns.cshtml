@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<UserAccounts.Models.CampaignModel>
 
-<h4>Campaigns</h4>
+<h4>@Resources.Campaign.Campaigns</h4>
 <table class="table">
     <tr>
         <th>
-            <h5><span class="badge badge-pill badge-dark">User name</span></h5>
+            <h5><span class="badge badge-pill badge-dark">@Resources.Global.UserName</span></h5>
         </th>
         <th>
-            <h5><span class="badge badge-pill badge-dark">Required sum</span></h5>
+            <h5><span class="badge badge-pill badge-dark">@Resources.Campaign.RequiredSum</span></h5>
         </th>
         <th>
-            <h5><span class="badge badge-pill badge-dark">Current sum</span></h5>
+            <h5><span class="badge badge-pill badge-dark">@Resources.Campaign.CurrentSum</span></h5>
         </th>
         <th></th>
     </tr>

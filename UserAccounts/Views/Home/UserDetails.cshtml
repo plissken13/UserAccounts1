@@ -1,16 +1,18 @@
 ﻿@model UserAccounts.Models.UserViewModel
 
 @{
-    ViewBag.Title = "UserDetails";
+    ViewBag.Title = Resources.Global.UserDetails;
 }
 
-<h2>User details</h2>
+<h2 class="page-header">
+    @ViewBag.Title
+</h2>
 
 <div>
     <hr/>
     <dl class="dl-horizontal">
         <dt>
-            <b>User name</b>
+            @Resources.Global.UserName
         </dt>
 
         <dd>
@@ -18,14 +20,14 @@
         </dd>
 
         <dt>
-            <b>Status</b>
+            @Resources.Global.Status
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Status)
         </dd>
         <dt>
-            <b>Role</b>
+            @Resources.Global.Role
         </dt>
 
         <dd>
@@ -37,5 +39,5 @@
     @Html.Partial("Campaigns", Model.Campaigns)
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Campaign.Back, "Index")
 </p>

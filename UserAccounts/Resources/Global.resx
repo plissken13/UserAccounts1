@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Block" xml:space="preserve">
+    <value>Block</value>
+  </data>
   <data name="Campaigns" xml:space="preserve">
     <value>Campaigns</value>
   </data>
@@ -132,6 +135,9 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Create your own crowdfunding campaign!</value>
+  </data>
   <data name="LockedOut" xml:space="preserve">
     <value>This account has been locked out, please try again later.</value>
   </data>
@@ -144,8 +150,32 @@
   <data name="Logoff" xml:space="preserve">
     <value>Log off</value>
   </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>My profile</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="SetAdmin" xml:space="preserve">
+    <value>Set as admin</value>
+  </data>
+  <data name="SetUser" xml:space="preserve">
+    <value>Set as user</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Unblock" xml:space="preserve">
+    <value>Unblock</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>User details</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>

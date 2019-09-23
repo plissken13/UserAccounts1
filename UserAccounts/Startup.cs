@@ -39,7 +39,8 @@ namespace UserAccounts
 
             var user = new ApplicationUser();
 
-            user.Email = "mmm@m.m";
+            user.Email = "adm2309@mailinator.com";
+            user.EmailConfirmed = true;
             user.UserName = user.Email;
 
             string userPWD = "123qwe";

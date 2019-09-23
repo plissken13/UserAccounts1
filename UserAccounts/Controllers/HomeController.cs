@@ -29,7 +29,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult UserDetails(string id)
         {
             using (var db = new ApplicationDbContext())

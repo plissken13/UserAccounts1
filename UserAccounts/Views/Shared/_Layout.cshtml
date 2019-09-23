@@ -1,10 +1,9 @@
-﻿@using Microsoft.AspNetCore.Authentication
-@using Microsoft.CodeAnalysis
+﻿@using Microsoft.AspNet.Identity;
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -22,6 +21,9 @@
         </li>
         <li class="nav-item nav-link">
             @Html.ActionLink(Resources.Global.Campaigns, "CampaignList", "Campaign", null, new {@class = "navigation-link"})
+        </li>
+        <li class="nav-item nav-link">
+            @Html.ActionLink(Resources.Global.MyProfile, "UserDetails", "Home", new {id = User.Identity.GetUserId()}, new {@class = "navigation-link"})
         </li>
     </ul>
     @Html.Partial("_LoginPartial")

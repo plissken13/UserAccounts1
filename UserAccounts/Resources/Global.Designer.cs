@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Block.
+        /// </summary>
+        public static string Block {
+            get {
+                return ResourceManager.GetString("Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campaigns.
         /// </summary>
         public static string Campaigns {
@@ -106,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create your own crowdfunding campaign!.
+        /// </summary>
+        public static string HomePage {
+            get {
+                return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This account has been locked out, please try again later..
         /// </summary>
         public static string LockedOut {
@@ -142,11 +160,83 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My profile.
+        /// </summary>
+        public static string MyProfile {
+            get {
+                return ResourceManager.GetString("MyProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set as admin.
+        /// </summary>
+        public static string SetAdmin {
+            get {
+                return ResourceManager.GetString("SetAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set as user.
+        /// </summary>
+        public static string SetUser {
+            get {
+                return ResourceManager.GetString("SetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unblock.
+        /// </summary>
+        public static string Unblock {
+            get {
+                return ResourceManager.GetString("Unblock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User details.
+        /// </summary>
+        public static string UserDetails {
+            get {
+                return ResourceManager.GetString("UserDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User name.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
         

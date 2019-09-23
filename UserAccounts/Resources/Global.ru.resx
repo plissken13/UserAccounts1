@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Block" xml:space="preserve">
+    <value>Заблокировать</value>
+  </data>
   <data name="Campaigns" xml:space="preserve">
     <value>Кампании</value>
   </data>
@@ -132,6 +135,9 @@
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
   </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Создайте свою краудфандинговую кампанию!</value>
+  </data>
   <data name="LockedOut" xml:space="preserve">
     <value>Этот аккаунт заблокирован, пожалуйста, попробуйте позже.</value>
   </data>
@@ -144,8 +150,32 @@
   <data name="Logoff" xml:space="preserve">
     <value>Выйти</value>
   </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Мой профиль</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роль</value>
+  </data>
+  <data name="SetAdmin" xml:space="preserve">
+    <value>Администратор</value>
+  </data>
+  <data name="SetUser" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Unblock" xml:space="preserve">
+    <value>Разблокировать</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>Информация о пользователе</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Пользователь</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>

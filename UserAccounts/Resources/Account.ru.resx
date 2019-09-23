@@ -117,20 +117,71 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AF1" xml:space="preserve">
+    <value>Вы успешно привязали свой аккаунт</value>
+  </data>
+  <data name="AF2" xml:space="preserve">
+    <value>Пожалуйста, введите имя пользователя для этого сайта и нажмите кнопку регистрации для завершения входа.</value>
+  </data>
+  <data name="AnotherService" xml:space="preserve">
+    <value>Используйте сторонний сервис для входа.</value>
+  </data>
+  <data name="Associate" xml:space="preserve">
+    <value>Привяжите свой аккаунт</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Привязывание аккаунта</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Сменить пароль</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>перейдите по ссылке для входа</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Не забудьте подтвердить свой email!</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердить пароль</value>
   </data>
   <data name="CreateAccount" xml:space="preserve">
     <value>Создать новый аккаунт.</value>
   </data>
+  <data name="CreatePassword" xml:space="preserve">
+    <value>Создать пароль</value>
+  </data>
   <data name="EnterEmail" xml:space="preserve">
     <value>Пожалуйста, введите Ваш email.</value>
+  </data>
+  <data name="ExternalLogin" xml:space="preserve">
+    <value>Используйте внешний аккаунт для входа:</value>
   </data>
   <data name="ForgotPass" xml:space="preserve">
     <value>Забыли пароль?</value>
   </data>
   <data name="ForgotPassConfirm" xml:space="preserve">
     <value>Восстановление пароля.</value>
+  </data>
+  <data name="HasBeenReset" xml:space="preserve">
+    <value>Ваш пароль был изменен. Пожалуйста</value>
+  </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Ошибка входа.</value>
+  </data>
+  <data name="ManageExternal" xml:space="preserve">
+    <value>Управление внешними сервисами авторизации</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="NoLocal" xml:space="preserve">
+    <value>У Вас нет локального аккаунта для этого сайта. Создайте локальный аккаунт для входа без использования внешних сервисов.</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Старый пароль</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
   </data>
   <data name="PleaseCheck" xml:space="preserve">
     <value>Пожалуйста, проверьте ваш почтовый ящик для восстановления пароля.</value>
@@ -143,6 +194,27 @@
   </data>
   <data name="RegisterNew" xml:space="preserve">
     <value>Зарегистрироваться как новый пользователь.</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove {0} login from your account</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Сменить</value>
+  </data>
+  <data name="ResetConfirm" xml:space="preserve">
+    <value>Подтверждение смены пароля</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Сменить пароль</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="ThanksForConfirm" xml:space="preserve">
+    <value>Спасибо за подтверждение Вашего email. Пожалуйста</value>
   </data>
   <data name="UseAccount" xml:space="preserve">
     <value>Используйте локальный аккаунт для входа.</value>
