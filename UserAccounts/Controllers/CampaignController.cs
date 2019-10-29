@@ -225,6 +225,7 @@ namespace UserAccounts.Controllers
         [Authorize]
         public ActionResult Comment(CommentsModel comment)
         {
+
             using (var db = new ApplicationDbContext())
             {
 

@@ -13,5 +13,9 @@
         public string AuthorName { get; set; }
 
         public virtual CampaignModel Campaign { get; set; }
+
+
     }
+
+
 }
