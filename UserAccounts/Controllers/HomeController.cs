@@ -59,7 +59,7 @@ namespace UserAccounts.Controllers
             return userViewModel;
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize /*(Roles = "Admin")*/]
         public ActionResult UserList()
         {
             ViewBag.Message = "The user list.";

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using UserAccounts;
 using UserAccounts.Models;
 
-namespace UserAccounts
+/*namespace UserAccounts
 {
     public class EmailService : IIdentityMessageService
     {
@@ -31,13 +31,13 @@ namespace UserAccounts
             myMessage.HtmlContent = message.Body;
             myMessage.AddTo(message.Destination);
 
-            var apiKey = "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";
+            var apiKey = "";
 
             var client = new SendGridClient(apiKey);
             var response = await client.SendEmailAsync(myMessage);
         }
     }
-}
+}*/
 
 public class SmsService : IIdentityMessageService
 {
@@ -93,7 +93,7 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
             Subject = "Security Code",
             BodyFormat = "Your security code is {0}"
         });
-        manager.EmailService = new EmailService();
+        //manager.EmailService = new EmailService();
         manager.SmsService = new SmsService();
         var dataProtectionProvider = options.DataProtectionProvider;
         if (dataProtectionProvider != null)

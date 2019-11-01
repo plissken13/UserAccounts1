@@ -63,7 +63,7 @@ namespace UserAccounts.Controllers
                 return View(model);
             }
 
-            var user = await UserManager.FindByNameAsync(model.Email);
+          /*  var user = await UserManager.FindByNameAsync(model.Email);
             if (user != null)
             {
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
@@ -71,7 +71,7 @@ namespace UserAccounts.Controllers
                     ViewBag.errorMessage = "You must have a confirmed email to log on.";
                     return View("Error");
                 }
-            }
+            }*/
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -220,7 +220,7 @@ namespace UserAccounts.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                if (user == null /*|| !(await UserManager.IsEmailConfirmedAsync(user.Id))*/)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
@@ -456,7 +456,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize (Roles = "Admin")]
+        [Authorize /*(Roles = "Admin")*/]
         public async Task<bool> DeleteUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
@@ -475,7 +475,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize /*(Roles = "Admin")*/]
         public async Task<bool> LockUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
@@ -495,7 +495,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize /*(Roles = "Admin")*/]
         public async Task<bool> UnLockUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
