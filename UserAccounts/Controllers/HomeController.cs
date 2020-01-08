@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using UserAccounts.Models;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
 
 namespace UserAccounts.Controllers
 {
     [RequireHttps]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public async System.Threading.Tasks.Task<ActionResult> Index()
         {
+            // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+            var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+            var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
+
+            // Optional: Request an access token to other Azure services
+            var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+            string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
+
             return View();
         }
 
