@@ -10,9 +10,9 @@ namespace UserAccounts
 {
     public partial class Startup
     {
-        public void Configuration(IAppBuilder app)
+        public async void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            await ConfigureAuth(app);
             CreateRolesAndUsers();
         }
 
