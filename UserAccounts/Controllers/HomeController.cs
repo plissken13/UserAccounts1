@@ -15,11 +15,15 @@ namespace UserAccounts.Controllers
         {
             // Instantiate a new KeyVaultClient object, with an access token to Key Vault
             var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
-            var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
+            var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
             // Optional: Request an access token to other Azure services
             var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
             string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
+
+            var googleClientID = await keyVaultClient.GetSecretAsync(
+                    "https://useraccountskeys.vault.azure.net/secrets/GoogleClientID/0987555de5794d6ab165db0d7cb0c601")
+                .ConfigureAwait(false);
 
             return View();
         }
