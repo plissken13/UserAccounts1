@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Configuration;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -6,14 +10,46 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using UserAccounts.Models;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
+using Microsoft.Owin.Security.Facebook;
 
 namespace UserAccounts
 {
     public partial class Startup
     {
+
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
-        public void ConfigureAuth(IAppBuilder app)
+        public async Task ConfigureAuth(IAppBuilder app)
         {
+
+            var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+            var keyVaultClient =
+                new KeyVaultClient(
+                    new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
+            var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+            string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/")
+                .ConfigureAwait(false);
+
+
+            var demoSecret = ConfigurationManager.AppSettings["demoSecret"];
+
+            var googleClientId = await keyVaultClient.GetSecretAsync(
+                    "https://useraccountskeys.vault.azure.net/secrets/GoogleClientID/0987555de5794d6ab165db0d7cb0c601")
+                .ConfigureAwait(false);
+
+            var googleClientSecret = await keyVaultClient.GetSecretAsync(
+                    "https://useraccountskeys.vault.azure.net/secrets/GoogleClientSecret/f8234e18205043c2a1d8804f42fc34c6")
+                .ConfigureAwait(false);
+
+            var facebookAppId = await keyVaultClient.GetSecretAsync(
+                    "https://useraccountskeys.vault.azure.net/secrets/FacebookAppID/10d67e52aec04f8a90730e4b09187170")
+                .ConfigureAwait(false);
+
+            var facebookAppSecret = await keyVaultClient.GetSecretAsync(
+                    "https://useraccountskeys.vault.azure.net/secrets/FacebookAppSecret/386eade3a4ae444d8916baae7ffaec9f")
+                .ConfigureAwait(false);
+
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
@@ -28,40 +64,31 @@ namespace UserAccounts
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
-                    // Enables the application to validate the security stamp when the user logs in.
-                    // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                        OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
+           
             app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
 
-            // Enables the application to remember the second login verification factor such as phone or email.
-            // Once you check this option, your second step of verification during the login process will be remembered on the device where you logged in from.
-            // This is similar to the RememberMe option when you log in.
+
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
-
-            app.UseFacebookAuthentication(
-               appId: "446415506218402",
-               appSecret: "04570da56328655742d6b41a30cf2c03");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "73506565366-3le6p02h95c0pb7rnobl46geehnmems5.apps.googleusercontent.com",
-                ClientSecret = "d5aDjnc4gybo530LI9h-S-45"
+                ClientId = googleClientId.Value,
+                ClientSecret = googleClientSecret.Value
+            });
+
+            app.UseFacebookAuthentication(new FacebookAuthenticationOptions()
+            {
+                AppId = facebookAppId.Value,
+                AppSecret = facebookAppSecret.Value
             });
         }
     }

@@ -8,6 +8,8 @@ using SendGrid.Helpers.Mail;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.Services.AppAuthentication;
 using UserAccounts;
 using UserAccounts.Models;
 
@@ -31,7 +33,17 @@ namespace UserAccounts
             myMessage.HtmlContent = message.Body;
             myMessage.AddTo(message.Destination);
 
-            var apiKey = "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";
+            var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+            var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
+            var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+            string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
+
+            var sendGridApiKey = await keyVaultClient.GetSecretAsync(
+                    "https://useraccountskeys.vault.azure.net/secrets/SendGridApiKey/69de5d4a361348cc84000d38469f219a")
+                .ConfigureAwait(false);
+
+
+            var apiKey = sendGridApiKey.Value;
 
             var client = new SendGridClient(apiKey);
             var response = await client.SendEmailAsync(myMessage);
