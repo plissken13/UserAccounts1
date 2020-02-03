@@ -12,7 +12,7 @@ namespace UserAccounts
     {
         public async void Configuration(IAppBuilder app)
         {
-            await ConfigureAuth(app);
+            ConfigureAuth(app).Wait();
             CreateRolesAndUsers();
         }
 
