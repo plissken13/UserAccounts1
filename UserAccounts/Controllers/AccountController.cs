@@ -142,8 +142,6 @@ namespace UserAccounts.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            //ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Name"))
-            //    .ToList(), "Name", "Name");
             return View();
         }
 
@@ -160,7 +158,7 @@ namespace UserAccounts.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     //// Send an email with this link
@@ -176,7 +174,7 @@ namespace UserAccounts.Controllers
                     await UserManager.AddToRoleAsync(user.Id, "User");
 
 
-                    return RedirectToAction("UserList", "Home");
+                    return RedirectToAction("Register", "Account");
                 }
 
                 AddErrors(result);
