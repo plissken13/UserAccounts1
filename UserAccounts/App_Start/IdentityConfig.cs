@@ -19,7 +19,6 @@ namespace UserAccounts
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
             return SendGridAsync(message);
         }
 
@@ -34,9 +33,12 @@ namespace UserAccounts
             myMessage.AddTo(message.Destination);
 
             var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
-            var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
+            var keyVaultClient =
+                new KeyVaultClient(
+                    new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
             var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
+            string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/")
+                .ConfigureAwait(false);
 
             var sendGridApiKey = await keyVaultClient.GetSecretAsync(
                     "https://useraccountskeys.vault.azure.net/secrets/SendGridApiKey/69de5d4a361348cc84000d38469f219a")
@@ -51,16 +53,7 @@ namespace UserAccounts
     }
 }
 
-public class SmsService : IIdentityMessageService
-{
-    public Task SendAsync(IdentityMessage message)
-    {
-        // Plug in your SMS service here to send a text message.
-        return Task.FromResult(0);
-    }
-}
 
-// Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 public class ApplicationUserManager : UserManager<ApplicationUser>
 {
     public ApplicationUserManager(IUserStore<ApplicationUser> store)
@@ -72,14 +65,12 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
         IOwinContext context)
     {
         var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
-        // Configure validation logic for usernames
         manager.UserValidator = new UserValidator<ApplicationUser>(manager)
         {
             AllowOnlyAlphanumericUserNames = false,
             RequireUniqueEmail = true
         };
 
-        // Configure validation logic for passwords
         manager.PasswordValidator = new PasswordValidator
         {
             RequiredLength = 6,
@@ -89,24 +80,11 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
             RequireUppercase = false
         };
 
-        // Configure user lockout defaults
         manager.UserLockoutEnabledByDefault = true;
         manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
         manager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
-        // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
-        // You can write your own provider and plug it in here.
-        manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
-        {
-            MessageFormat = "Your security code is {0}"
-        });
-        manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
-        {
-            Subject = "Security Code",
-            BodyFormat = "Your security code is {0}"
-        });
         manager.EmailService = new EmailService();
-        manager.SmsService = new SmsService();
         var dataProtectionProvider = options.DataProtectionProvider;
         if (dataProtectionProvider != null)
         {
@@ -118,7 +96,6 @@ public class ApplicationUserManager : UserManager<ApplicationUser>
     }
 }
 
-// Configure the application sign-in manager which is used in this application.
 public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
 {
     public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)

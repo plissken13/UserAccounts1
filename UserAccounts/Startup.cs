@@ -47,7 +47,6 @@ namespace UserAccounts
 
             var chkUser = UserManager.Create(user, userPWD);
 
-            //Add default User to Role Admin   
             if (chkUser.Succeeded)
             {
                 UserManager.AddToRole(user.Id, "Admin");

@@ -18,7 +18,7 @@ namespace UserAccounts.Models
         public string OwnerName { get; set; }
 
         public string OwnerId { get; set; }
-        
+
         public double RequiredSum { get; set; }
 
         public double CurrentSum { get; set; }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using PagedList;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -125,7 +124,6 @@ namespace UserAccounts.Controllers
         }
 
 
-
         [Authorize]
         public ActionResult CampaignList(string sortOrder, string currentSort, int? page)
         {
@@ -149,26 +147,22 @@ namespace UserAccounts.Controllers
                 case "Name":
                     if (sortOrder.Equals(currentSort))
                         campaigns = db.CampaignModels.OrderByDescending
-                                (m => m.Name).ToPagedList(pageIndex, pageSize);
+                            (m => m.Name).ToPagedList(pageIndex, pageSize);
                     else
                         campaigns = db.CampaignModels.OrderBy
-                                (m => m.Name).ToPagedList(pageIndex, pageSize);
+                            (m => m.Name).ToPagedList(pageIndex, pageSize);
                     break;
                 case "RequiredSum":
                     if (sortOrder.Equals(currentSort))
                         campaigns = db.CampaignModels.OrderByDescending
-                                (m => m.RequiredSum).ToPagedList(pageIndex, pageSize);
+                            (m => m.RequiredSum).ToPagedList(pageIndex, pageSize);
                     else
                         campaigns = db.CampaignModels.OrderBy
-                                (m => m.RequiredSum).ToPagedList(pageIndex, pageSize);
+                            (m => m.RequiredSum).ToPagedList(pageIndex, pageSize);
                     break;
             }
-            return View(campaigns);
 
-            //using (var db = new ApplicationDbContext())
-            //{
-            //    return View(db.CampaignModels.ToList());
-            //}
+            return View(campaigns);
         }
 
         private CampaignModel GetCampaignModel(CreateCampaignViewModel model, ApplicationDbContext db)
@@ -225,10 +219,8 @@ namespace UserAccounts.Controllers
         [Authorize]
         public ActionResult Comment(CommentsModel comment)
         {
-
             using (var db = new ApplicationDbContext())
             {
-
                 db.CommentsModels.Add(comment);
                 var authorId = User.Identity.GetUserId();
                 var authorName = db.Users.SingleOrDefault(x => x.Id == authorId)?.UserName;
@@ -236,7 +228,7 @@ namespace UserAccounts.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("Details", "Campaign", new { id = comment.CampaignId });
+            return RedirectToAction("Details", "Campaign", new {id = comment.CampaignId});
         }
 
         [HttpGet]

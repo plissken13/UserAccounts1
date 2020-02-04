@@ -8,14 +8,8 @@
 
         public int CampaignId { get; set; }
 
-        //public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
 
         public virtual CampaignModel Campaign { get; set; }
-
-
     }
-
-
 }
