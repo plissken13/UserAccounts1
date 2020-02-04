@@ -17,11 +17,11 @@ namespace UserAccounts.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        ApplicationDbContext context;
+        ApplicationDbContext _context;
 
         public AccountController()
         {
-            context = new ApplicationDbContext();
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -42,8 +42,7 @@ namespace UserAccounts.Controllers
             private set { _userManager = value; }
         }
 
-        //
-        // GET: /Account/Login
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -51,8 +50,6 @@ namespace UserAccounts.Controllers
             return View();
         }
 
-        //
-        // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -158,12 +155,10 @@ namespace UserAccounts.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     //// Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code },
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new {userId = user.Id, code = code},
                         protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account",
                         "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
@@ -184,7 +179,6 @@ namespace UserAccounts.Controllers
             return View(model);
         }
 
- 
 
         //
         // GET: /Account/ConfirmEmail
@@ -454,7 +448,7 @@ namespace UserAccounts.Controllers
         }
 
         [HttpPost]
-        [Authorize (Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<bool> DeleteUser(List<string> arr)
         {
             ApplicationUser user = new ApplicationUser();
